@@ -29,8 +29,6 @@ function getBullsAndCows(userInput, numberToGuess) {
     }
   }
 
-  console.log(result);
-
   return result;
 }
 

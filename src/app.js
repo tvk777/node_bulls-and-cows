@@ -13,15 +13,22 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-const askUser = function runGame() {
-  rl.question('Guess a 4 digit number! ', (userInput) => {
-    if (checkIsValidUserInput(userInput)) {
-      rl.close();
+console.log('Guess a 4 digit number!');
 
-      return getBullsAndCows(Number(userInput), numberToGuess);
-    }
-    runGame();
-  });
-};
+rl.on('line', (userInput) => {
+  if (!checkIsValidUserInput(userInput)) {
+    console.log('Invalid input. Try again:');
 
-askUser();
+    return;
+  }
+
+  const result = getBullsAndCows(Number(userInput), numberToGuess);
+
+  // assuming getBullsAndCows returns { bulls, cows }
+  if (result.bulls === 4) {
+    console.log('🎉 You won!');
+    rl.close();
+  } else {
+    console.log('Try again:');
+  }
+});

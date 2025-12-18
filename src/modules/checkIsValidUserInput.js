@@ -13,22 +13,14 @@ function checkIsValidUserInput(userInput) {
   const inputSet = new Set(userInput);
 
   if (isNaN(Number(userInput)) || userInput.length !== 4) {
-    console.log('You should enter a 4-digit Number. Try again.');
-
     return false;
   }
 
   if (Number(userInput[0]) === 0) {
-    console.log("Your number shouldn't start with 0. Try again.");
-
     return false;
   }
 
   if (inputSet.size !== 4) {
-    console.log(
-      "Your number shouldn't contain any duplicate digits. Try again.",
-    );
-
     return false;
   }
 

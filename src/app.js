@@ -24,6 +24,8 @@ rl.on('line', (userInput) => {
 
   const result = getBullsAndCows(Number(userInput), numberToGuess);
 
+  console.log(`Bulls: ${result.bulls}, Cows: ${result.cows}`);
+
   // assuming getBullsAndCows returns { bulls, cows }
   if (result.bulls === 4) {
     console.log('🎉 You won!');
